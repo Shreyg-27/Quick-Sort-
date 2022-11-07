@@ -8,7 +8,7 @@ The 2 subarrays created, are then recursively sorted.
 **We can pick an element as a pivot in the following ways:**
 
        1) Pick the first element as a pivot.
-       2) Pick the last element as a pivot (implemented below)
+       2) Pick the last element as a pivot.
        3) Pick a random element as a pivot.
        4) Choose the median as the pivot.
  
@@ -23,7 +23,7 @@ There are two basic operations in the algorithm:
 
 -We will initialize a left pointer at the first element of the array.
 
--We will initialize an right pointer at the last element of the array. 
+-We will initialize a right pointer at the last element of the array. 
 
 -While the value at the left pointer in the array is less than the pivot value, move the left pointer to the right (add 1). 
 
@@ -37,7 +37,7 @@ There are two basic operations in the algorithm:
 
 -Move the left pointer to the right by one and the right pointer to the left by one.
 
--We have to continue this till the start < end. When start > end, we will have to stop. 
+-We have to continue this till the left < right. When left > right, we will have to stop. 
 
 -Then our pivot element is placed at the right position, with 2 subarrays. 
 
@@ -81,6 +81,7 @@ Recursive call on the 2 subarrays.
 ### PSEUDOCODE ### 
 
 //Let us assume we take the first element as the pivot. 
+
 partition(arr,lb,ub){
 
   p=arr[lb]
@@ -90,6 +91,7 @@ partition(arr,lb,ub){
   end=ub
   
   while (start<end){
+  
      while (arr[start]<p){
      
        start++
@@ -105,7 +107,8 @@ partition(arr,lb,ub){
      
        swap(arr[start], arr[end])
   }
-  swap(a[lb],a[end])// the final position of assumed pivot is at the end
+  
+  swap(a[lb],a[end]) // the final position of assumed pivot is at the end
   
   return end;
 
